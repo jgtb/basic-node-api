@@ -10,7 +10,7 @@ exports.index = function(req, res) {
 }
 
 exports.view = function(req, res) {
-  Checklist.findById(req.params.checklistId, function(err, checklist) {
+  Checklist.findById(req.params.id, function(err, checklist) {
     if (err) res.status(500).send();
     if (!err) res.send(checklist);
   }).populate({path: 'products'});
@@ -28,7 +28,7 @@ exports.create = function(req, res) {
 }
 
 exports.update = function(req, res) {
-  Checklist.findById(req.params.checklistId, function(err, checklist) {
+  Checklist.findById(req.params.id, function(err, checklist) {
     checklist.description = req.body.description
     checklist.products.map(productId => checklist.products.remove(productId))
     req.body.products.map(productId => checklist.products.push(productId))
@@ -40,7 +40,7 @@ exports.update = function(req, res) {
 }
 
 exports.delete = function(req, res) {
-  Checklist.findById(req.params.checklistId, function(err, checklist) {
+  Checklist.findById(req.params.id, function(err, checklist) {
     checklist.status = 0
     checklist.save(function(err, checklist) {
       if (err) res.status(500).send()

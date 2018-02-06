@@ -5,7 +5,7 @@ const express     = require('express')
     , app         = express()
     , jwt         = require('jsonwebtoken')
 
-app.use(cors());
+app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 

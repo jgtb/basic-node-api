@@ -1,4 +1,4 @@
-const Tag = require('../models/tag.model.js');
+const Tag = require('../models/tag.model.js')
 
 exports.index = function(req, res) {
   Tag.find({user: req.user._id, status: 1}).exec(function(err, tags) {

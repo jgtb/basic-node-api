@@ -1,4 +1,4 @@
-const Product = require('../models/product.model.js');
+const Product = require('../models/product.model.js')
 
 exports.index = function(req, res) {
   Product.find({user: req.user._id, status: 1})

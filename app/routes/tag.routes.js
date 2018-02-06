@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   app.get('/tag/view/:id', auth.canAccess, tag.view);
 
-  app.post('/tag/create/', tag.create);
+  app.post('/tag/create', tag.create);
 
   app.put('/tag/update/:id', auth.canAccess, tag.update);
 

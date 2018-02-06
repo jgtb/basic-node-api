@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   app.get('/category/view/:id', auth.canAccess, category.view);
 
-  app.post('/category/create/', category.create);
+  app.post('/category/create', category.create);
 
   app.put('/category/update/:id', auth.canAccess, category.update);
 

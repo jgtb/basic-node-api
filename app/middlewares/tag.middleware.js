@@ -1,7 +1,7 @@
 const Tag = require('../models/tag.model.js')
 
-exports.canAccess = function(req, res, next) {
-  Tag.findById(req.params.tagId, function(err, tag) {
+exports.canAccess = function(req, res, net) {
+  Tag.findById(req.params.id, function(err, tag) {
     if (req.user) {
       if (req.user._id == tag.user) {
         next()

@@ -1,5 +1,4 @@
 const User    = require('../models/user.model.js'),
-      jwt     = require('jsonwebtoken')
       bcrypt  = require('bcrypt')
 
 exports.register = function(req, res) {
@@ -19,7 +18,7 @@ exports.login = function(req, res) {
       res.status(401).send();
     } else if (user) {
       if (user.comparePassword(req.body.password)) {
-        return res.status(200).json({token: jwt.sign({ email: user.email, username: user.username, _id: user._id}, 'RESTFULAPIs')})
+        return res.status(200).json({token: user.token(), user: user}).send()
       } else {
         res.status(401).send()
       }

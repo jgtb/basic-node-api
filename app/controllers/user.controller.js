@@ -1,7 +1,7 @@
 const User = require('../models/user.model.js');
 
 exports.view = function(req, res) {
-  User.findById(req.params.id, function(err, user) {
+  User.findById(req.parms.id, function(err, user) {
     if (err) res.status(500).send()
     if (!err) res.send(user)
   })

@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   app.get('/checklist/view/:id', auth.canAccess, checklist.view);
 
-  app.post('/checklist/create/', checklist.create);
+  app.post('/checklist/create', checklist.create);
 
   app.put('/checklist/update/:id', auth.canAccess, checklist.update);
 
